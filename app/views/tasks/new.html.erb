@@ -1,9 +1,15 @@
-<%= form_with(model: @article, local: true) do |form| %>
-  <%= form.label :title %>
-  <%= form.text_field :title %>
+<div class="container mt-5">
+  <h1>New task</h1>
 
-  <%= form.label :content %>
-  <%= form.text_area :content %>
+  <%= render "form", task: @task %>
 
-  <%= form.submit %>
+  <hr>
+  <%= link_to tasks_path do %>
+    <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
+  <% end %>
+  <% if flash[:error] %>
+  <div class="error">
+    <%= flash[:error] %>
+  </div>
 <% end %>
+</div>
